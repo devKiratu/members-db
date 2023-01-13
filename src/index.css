@@ -1,5 +1,6 @@
 @import url("./styles/profile-card.css");
 @import url("./styles/app.css");
+@import url("./styles/members.css");
 
 * {
   padding: 0;
