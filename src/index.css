@@ -1,6 +1,7 @@
 @import url("./styles/profile-card.css");
 @import url("./styles/app.css");
 @import url("./styles/members.css");
+@import url("./styles/update-members.css");
 
 * {
   padding: 0;
@@ -27,4 +28,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: var(--pale-blue) url("./assets/pattern-background-desktop.svg")
     no-repeat center top/100% fixed;
+}
+
+a {
+  text-decoration: none;
 }
