@@ -1,0 +1,65 @@
+.member-details {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.form-container {
+  width: 400px;
+  margin: 20px 0;
+}
+
+form {
+  padding: 20px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: var(--white);
+  border-radius: 20px;
+}
+label {
+  display: block;
+  color: var(--dark-blue);
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.input-group {
+  padding: 0 10px;
+  margin-bottom: 10px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--bright-blue);
+}
+
+.btn {
+  background-color: var(--bright-blue);
+  color: var(--white);
+  border: none;
+  border-radius: 15px;
+  padding: 20px;
+  font-weight: bold;
+  display: block;
+  cursor: pointer;
+}
+
+.btn-submit {
+  width: 100%;
+}
+
+.btn-nav {
+  margin-right: 20px;
+}
+
+.btn-nav.btn-home {
+  background-color: var(--very-pale-blue);
+  color: var(--bright-blue);
+}
+
+.nav-btn {
+  display: flex;
+}
