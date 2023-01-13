@@ -1,14 +1,9 @@
-import ProfileCard from "./components/ProfileCard";
+import Members from "./pages/Members";
 
 function App() {
   return (
     <div className="app">
-      <ProfileCard />
-      <ProfileCard />
-      <ProfileCard />
-      <ProfileCard />
-      <ProfileCard />
-      <ProfileCard />
+      <Members />
     </div>
   );
 }

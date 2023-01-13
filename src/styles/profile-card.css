@@ -6,7 +6,7 @@
   background-color: var(--white);
   text-align: center;
   position: relative;
-  margin: 20px;
+  margin: 20px auto;
 }
 
 .card:hover {
@@ -53,7 +53,7 @@
 }
 
 .occupation {
-  margin-top: 10px;
+  margin-top: 15px;
   text-transform: uppercase;
   color: var(--desaturated-blue);
 }
