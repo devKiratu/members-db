@@ -1,0 +1,64 @@
+.card {
+  width: 300px;
+  height: 400px;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: var(--white);
+  text-align: center;
+  position: relative;
+  margin: 20px;
+}
+
+.card:hover {
+  /* outline: 1px solid var(--bright-blue); */
+  box-shadow: 0 20px 20px var(--desaturated-blue);
+}
+
+.card-header {
+  height: 30%;
+  overflow: hidden;
+}
+
+.initials {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  outline: 2px solid var(--white);
+  border: 1px solid var(--bright-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 65px;
+  left: 100px;
+  background-color: var(--very-pale-blue);
+}
+
+.card-content {
+  height: 70%;
+  padding: 50px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.bio p {
+  color: var(--dark-grayish-blue);
+}
+
+.fullname {
+  font-weight: bold;
+  font-size: 18px;
+  color: var(--dark-blue);
+}
+
+.occupation {
+  margin-top: 10px;
+  text-transform: uppercase;
+  color: var(--desaturated-blue);
+}
+
+.email {
+  color: var(--dark-grayish-blue);
+  font-size: 14px;
+}
