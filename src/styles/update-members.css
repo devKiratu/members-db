@@ -1,12 +1,25 @@
 .member-details {
   display: flex;
+  flex-direction: column-reverse;
   justify-content: space-around;
   align-items: center;
 }
 
+@media screen and (min-width: 920px) {
+  .member-details {
+    flex-direction: row;
+  }
+}
+
 .form-container {
-  width: 400px;
+  width: 300px;
   margin: 20px 0;
+}
+
+@media screen and (min-width: 480px) {
+  .form-container {
+    width: 400px;
+  }
 }
 
 form {
