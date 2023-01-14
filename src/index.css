@@ -2,6 +2,7 @@
 @import url("./styles/app.css");
 @import url("./styles/members.css");
 @import url("./styles/update-members.css");
+@import url("./styles/search.css");
 
 * {
   padding: 0;
