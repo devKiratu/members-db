@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ProfileCard from "../components/ProfileCard";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,19 +10,29 @@ function Members() {
   const loading = useSelector((state) => state.members.loading);
   const members = useSelector((state) => state.members.data);
 
+  const [filtered, setFiltered] = useState(members);
+
+  const handleFilter = (data) => {
+    setFiltered(data);
+  };
+
   useEffect(() => {
     dispatch(fetchData());
   }, [dispatch]);
+
+  useEffect(() => {
+    setFiltered(members);
+  }, [members]);
 
   if (loading) return <h3>Fetching data. Please wait...</h3>;
 
   return (
     <>
-      <Search />
+      <Search onFilter={handleFilter} items={members} />
       <div className="container">
-        {members.length > 0 &&
-          members.map((member) => (
-            <Link to={`/members/${member._id}`} state={member} key={member._id}>
+        {filtered.length > 0 &&
+          filtered.map((member) => (
+            <Link to={`/members/${member._id}`} key={member._id}>
               <ProfileCard id={member._id} />
             </Link>
           ))}
