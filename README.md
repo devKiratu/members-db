@@ -37,7 +37,7 @@ This app is built using:
 - React router for routing
 - React toastify for toast notifications
 
-The app consumes a custom API endpoint. Follow [this link]() for details.
+The app consumes a custom API endpoint. Follow [this link](https://gitlab.com/touchinspiration/js-interview-project) for details.
 
 ### Feedback & Ideas
 
