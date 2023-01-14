@@ -1,6 +1,6 @@
 .card {
   width: 300px;
-  height: 400px;
+  min-height: 400px;
   border-radius: 20px;
   overflow: hidden;
   background-color: var(--white);
@@ -29,7 +29,7 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 65px;
+  top: 120px;
   left: 100px;
   background-color: var(--very-pale-blue);
 }
@@ -43,6 +43,7 @@
 }
 
 .bio p {
+  margin: 15px 0;
   color: var(--dark-grayish-blue);
 }
 
@@ -53,7 +54,7 @@
 }
 
 .occupation {
-  margin-top: 15px;
+  margin: 15px 0;
   text-transform: uppercase;
   color: var(--desaturated-blue);
 }

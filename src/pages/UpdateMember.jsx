@@ -1,9 +1,24 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useParams } from "react-router-dom";
+import { updateData } from "../api";
+import Form from "../components/Form";
 import ProfileCard from "../components/ProfileCard";
+import { getMemberByIdSelector, memberUpdated } from "../store/membersSlice";
 
 function UpdateMember() {
   const [showForm, setShowForm] = useState(false);
+  const { id } = useParams();
+  const member = useSelector((state) => getMemberByIdSelector(state, id));
+
+  const dispatch = useDispatch();
+
+  const handleUpdate = (data) => {
+    const updateObj = { _id: id, ...data };
+    dispatch(memberUpdated(updateObj));
+    updateData(updateObj);
+  };
+
   return (
     <div>
       <div className="nav-btn">
@@ -11,61 +26,14 @@ function UpdateMember() {
           <button className="btn btn-nav btn-home">Back Home</button>
         </Link>
         <button className="btn btn-nav" onClick={() => setShowForm(!showForm)}>
-          Edit Details
+          {showForm ? "Close" : "Edit Details"}
         </button>
       </div>
       <div className="member-details">
         <div>
-          <ProfileCard />
+          <ProfileCard id={id} />
         </div>
-        {showForm && (
-          <div className="form-container">
-            <form>
-              <div className="input-group">
-                <label htmlFor="firstname">First Name</label>
-                <input
-                  type={"text"}
-                  placeholder="first name"
-                  required
-                  id="firstname"
-                />
-              </div>
-              <div className="input-group">
-                <label htmlFor="lastname">Last Name</label>
-                <input
-                  type={"text"}
-                  placeholder="last name"
-                  required
-                  id="lastname"
-                />
-              </div>
-              <div className="input-group">
-                <label htmlFor="email">Email</label>
-                <input type={"email"} placeholder="email" required id="email" />
-              </div>
-              <div className="input-group">
-                <label htmlFor="occupation">Occupation</label>
-                <input
-                  type={"text"}
-                  placeholder="Occupation"
-                  required
-                  id="occupation"
-                />
-              </div>
-              <div className="input-group">
-                <label htmlFor="bio">Bio</label>
-                <textarea
-                  id="bio"
-                  placeholder="...a little about yourself"
-                  style={{ resize: "none" }}
-                ></textarea>
-              </div>
-              <div className="input-group">
-                <button className="btn btn-submit">Update Details</button>
-              </div>
-            </form>
-          </div>
-        )}
+        {showForm && <Form data={member} onSubmit={handleUpdate} />}
       </div>
     </div>
   );
