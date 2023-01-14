@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 import { requestHeaders, url } from "../api/config";
 
 export const membersSlice = createSlice({
@@ -6,7 +7,6 @@ export const membersSlice = createSlice({
   initialState: {
     data: [],
     loading: true,
-    error: "",
   },
   reducers: {
     memberUpdated: (state, action) => {
@@ -39,6 +39,6 @@ export const fetchData = createAsyncThunk("members/fetchData", async () => {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.log(error);
+    toast("Error fetching data", { type: "error" });
   }
 });
