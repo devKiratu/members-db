@@ -1,10 +1,11 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, current } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 import { requestHeaders, url } from "../api/config";
+import { loadState, updateLocalStorage } from "./localStorage";
 
 export const membersSlice = createSlice({
   name: "members",
-  initialState: {
+  initialState: loadState() ?? {
     data: [],
     loading: true,
   },
@@ -16,13 +17,19 @@ export const membersSlice = createSlice({
       member.email = data.email;
       member.occupation = data.occupation;
       member.bio = data.bio;
+      updateLocalStorage(current(state));
     },
   },
   extraReducers(builder) {
-    builder.addCase(fetchData.fulfilled, (state, action) => {
-      state.loading = false;
-      state.data = action.payload;
-    });
+    builder
+      .addCase(fetchData.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchData.fulfilled, (state, action) => {
+        state.loading = false;
+        state.data = action.payload;
+        updateLocalStorage(current(state));
+      });
   },
 });
 
