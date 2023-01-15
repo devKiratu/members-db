@@ -17,6 +17,7 @@ function UpdateMember() {
     const updateObj = { _id: id, ...data };
     dispatch(memberUpdated(updateObj));
     updateData(updateObj);
+    setShowForm(false);
   };
 
   return (
