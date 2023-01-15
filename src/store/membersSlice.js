@@ -8,6 +8,7 @@ export const membersSlice = createSlice({
   initialState: loadState() ?? {
     data: [],
     loading: true,
+    error: "",
   },
   reducers: {
     memberUpdated: (state, action) => {
@@ -25,6 +26,12 @@ export const membersSlice = createSlice({
       .addCase(fetchData.pending, (state) => {
         state.loading = true;
       })
+      .addCase(fetchData.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+        toast(action.error.message, { type: "error" });
+        updateLocalStorage(current(state));
+      })
       .addCase(fetchData.fulfilled, (state, action) => {
         state.loading = false;
         state.data = action.payload;
@@ -41,11 +48,6 @@ export const getMemberByIdSelector = (state, id) =>
   state.members.data.find((m) => m._id === id);
 
 export const fetchData = createAsyncThunk("members/fetchData", async () => {
-  try {
-    const response = await fetch(url, requestHeaders);
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    toast("Error fetching data", { type: "error" });
-  }
+  const response = await fetch(url, requestHeaders);
+  return response;
 });
