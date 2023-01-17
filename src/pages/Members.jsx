@@ -36,8 +36,8 @@ function Members() {
       <div className="container">
         {filtered.length > 0 &&
           filtered.map((member) => (
-            <Link to={`/members/${member._id}`} key={member._id}>
-              <ProfileCard id={member._id} />
+            <Link to={`/members/${member.id}`} key={member.id}>
+              <ProfileCard id={member.id} />
             </Link>
           ))}
       </div>

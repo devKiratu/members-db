@@ -1,9 +1,9 @@
 import { toast } from "react-toastify";
-import { requestHeaders, url } from "./config";
+import { requestHeaders, baseUrl } from "./config";
 
 const updateData = async (data) => {
   try {
-    const response = await fetch(`${url}/${data._id}`, {
+    const response = await fetch(`${baseUrl}/user/${data.id}`, {
       method: "PATCH",
       ...requestHeaders,
       body: JSON.stringify(data),
