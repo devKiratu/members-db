@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import headerBg from "../assets/bg-sidebar-mobile.svg";
+import headerBg from "../assets/img/bg-sidebar-mobile.svg";
 import { getMemberByIdSelector } from "../store/membersSlice";
 
 function ProfileCard({ id }) {

@@ -27,8 +27,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: var(--pale-blue) url("./assets/pattern-background-desktop.svg")
-    no-repeat center top/100% fixed;
+  background: var(--pale-blue)
+    url("./assets/img/pattern-background-desktop.svg") no-repeat center top/100%
+    fixed;
 }
 
 a {
