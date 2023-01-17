@@ -3,13 +3,15 @@ import { toast } from "react-toastify";
 import { requestHeaders, baseUrl } from "../api/config";
 import { loadState, updateLocalStorage } from "./localStorage";
 
+const defaultState = {
+  data: [],
+  loading: true,
+  error: "",
+};
+
 export const membersSlice = createSlice({
   name: "members",
-  initialState: loadState() ?? {
-    data: [],
-    loading: true,
-    error: "",
-  },
+  initialState: loadState() ?? defaultState,
   reducers: {
     memberUpdated: (state, action) => {
       const data = action.payload;
@@ -24,7 +26,7 @@ export const membersSlice = createSlice({
   extraReducers(builder) {
     builder
       .addCase(fetchData.pending, (state) => {
-        state.loading = true;
+        state = defaultState;
       })
       .addCase(fetchData.rejected, (state, action) => {
         state.loading = false;
