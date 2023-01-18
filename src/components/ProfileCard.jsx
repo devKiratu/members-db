@@ -6,7 +6,9 @@ import { getMemberByIdSelector } from "../store/membersSlice";
 function ProfileCard({ id }) {
   const member = useSelector((state) => getMemberByIdSelector(state, id));
   const { name, email, occupation, bio } = member;
-  const names = name.trim().split(" ");
+  const names = name.split(" ").filter((n) => n !== "");
+
+  if (names.length === 0) return null;
 
   let initials;
   if (names.length === 1) {
